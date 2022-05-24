@@ -26,8 +26,7 @@
 	<td>Description Activité:</td>
 	<td>Heure Début</td>
 	<td>Heure Fin</td>
-	<td>Date Début</td>
-	<td>Date Fin</td>
+	<td>Jour</td>
 	<td>Type d'Activité</td>
 	<td>Renouveler ?</td>
 	<td>Dernier Minute ?</td>
@@ -76,12 +75,10 @@
 	</td>
 
 
-	<!-- JourDebut -->
+	<!-- Journee -->
 	<td><input type="date" name="dateDeb" id = "dateDeb" required><br></br></td>
 
-	<!-- JourFin -->
-	<td><input type="date" name="dateFin" id = "dateFin" required><br></br></td>
-	
+
 	
 	<td>
 	<select type="text" name="type" id = "type">
