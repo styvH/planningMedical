@@ -70,7 +70,7 @@
     			<INPUT TYPE="SUBMIT" VALUE="   Consutler liste des Type Activités   "  style="width: 300px; height: 40px;">
   				</FORM>
 
-  				<FORM ACTION="">
+  				<FORM ACTION="listeActivites.php">
     			<INPUT TYPE="SUBMIT" VALUE="     Rechercher Activité     "  style="width: 300px; height: 40px;">
   				</FORM>
 

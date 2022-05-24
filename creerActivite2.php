@@ -9,6 +9,9 @@ if(isset($_POST['formid']))
 	{
 
 
+/*   Code Récupération Jour de la semaine à partir d'une date YYYY/MM//DD
+
+
         $dayToJour = array(
             "Mon" => "Lundi",
             "Tue" => "Mardi",
@@ -18,6 +21,17 @@ if(isset($_POST['formid']))
             "Sat" => "Samedi",
             "Sun" => "Dimanche",
         );
+$orderdate = explode('-', $journee);
+$year = $orderdate[0];
+$month   = $orderdate[1];
+$day  = $orderdate[2];
+
+
+$timestamp = mktime(0, 0, 0, $month, $day, $year); //Donne le timestamp correspondant à cette date
+ 
+$joursemaine = $dayToJour[date('D', $timestamp)]; //Ecrira les 3 premières lettres du jour en anglais, dans ton cas cela écrire Tue, si tu veux afficher Mardi il suffira juste alors de faire un tableau associatif, pareil si tu veux afficher 2.
+
+ */
 
 $desc= $_POST['desc'];
 $heureDeb = $_POST['heureDeb'];
@@ -29,15 +43,6 @@ $heureFin= $_POST['heureFin'];
 $journee = $_POST['dateDeb'];
 
 
-$orderdate = explode('-', $journee);
-$year = $orderdate[0];
-$month   = $orderdate[1];
-$day  = $orderdate[2];
-
-
-$timestamp = mktime(0, 0, 0, $month, $day, $year); //Donne le timestamp correspondant à cette date
- 
-$joursemaine = $dayToJour[date('D', $timestamp)]; //Ecrira les 3 premières lettres du jour en anglais, dans ton cas cela écrire Tue, si tu veux afficher Mardi il suffira juste alors de faire un tableau associatif, pareil si tu veux afficher 2.
 
 
 
@@ -67,11 +72,12 @@ $req= mysqli_query($db,$sqlJour)or die(mysqli_connect_error());
 
 $idjournee = $db->insert_id;
 
-$sql="INSERT INTO activite VALUES(NULL, '$desc', '$heureDeb', '$heureFin', '$idjournee', '0', '$renouv', '$urgent', NULL, NULL, '$type')"or die(mysqli_connect_error());
+$sql="INSERT INTO activite (`Id_ACTIVITE`, `description`, `date_debut`, `heure_debut`, `heure_fin`,`nombreMedecinActuel`, `renouveler`, `derniere_minute`,  `valide`, `Id_TYPE_ACTIVITE`) 
+                                VALUES(NULL, '$desc', '$journee', '$heureDeb', '$heureFin', '0', '$renouv', '$urgent', NULL, '$type')"or die(mysqli_connect_error());
 
 $req= mysqli_query($db,$sql)or die(mysqli_connect_error());
 
-header('Location: consulterActivite.php');
+header('Location: listeActivites.php');
 }
 
 
