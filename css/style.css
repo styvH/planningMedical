@@ -1,0 +1,149 @@
+/* ALL */
+body{background: #888888;}
+input, textarea, select, table{padding: 10px;color: rgb(0, 0, 0);text-shadow: 0 0 1px black;}
+table{color: rgb(0, 0, 0);}
+table{border-collapse:collapse}
+input, textarea{color: rgb(0, 0, 0);text-shadow: 0 0 1px black;}
+
+/* INDEX */
+#index table{margin-top: 20%;}
+#index input{font: 20px Consolas ;color: rgb(0, 0, 0);text-shadow: 0 0 1px black; width: 250px;}
+/*CONTENU*/
+#contenu
+{
+	background-color: rgba(0, 0, 0, 0.7);
+	height:650px;
+	padding: 60px 0px;
+	margin: 0px 200px;
+	border: solid 1px SteelBlue;
+	box-shadow: inset 0 0 50px 5px bloodred;
+	overflow: auto;
+}
+
+/** Scrollbar **/
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0,0, 0.5);; 
+    -webkit-box-shadow: inset 0 0 6px rgba(70,130,180,0.7); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0, 0, 0, 0.2); 
+}
+
+/* MENU */
+
+/** Titre **/
+h1{color: rgb(0, 0, 0); text-align: center;text-shadow: 2px 2px 2px black; padding: 35px 0px;}
+#Titre{color: rgb(0, 0, 0); font-size: 70px;text-shadow: 2px 2px 2px black; padding: 0px!important; margin: 20px 0px!important;}
+
+/** Onglets **/
+#menu{height: 60px; margin-bottom: 100px;}
+#onglets
+{
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+    line-height: 2;
+	text-align: center;
+	margin-left: 16%;
+}
+#onglets li
+{
+	float: left;
+	position: relative;
+	width: 250px;
+	border: solid 1px SteelBlue;
+	margin-left: 1px;
+}
+#onglets a{
+	color: black;
+	text-shadow: 0 0 1px white;
+	font-size: 20px;
+	display: block;
+	background: rgba(0,0,0,0.5);
+	text-decoration: none;
+	padding: 10px;
+	box-shadow: inset 0px 0px 10px 5px SteelBlue;
+}
+#onglets a:focus, #onglets a:hover
+{
+	box-shadow: inset 0px 0px 10px 5px Black;
+}
+.sous-onglet{display: none;position: absolute;width: 200px;}
+.sous-onglet li{top:0;left: -42;}
+#onglets li:hover .sous-onglet{display: block;}
+#Login{text-transform: capitalize;}
+
+/* Liste Praticien */
+#prat input[type=text]{width:50px; text-align:center;}
+#prat{background: rgba(0,0,0,0.5);}
+
+/*Liste_Medicament*/
+.medoc{width: 250px;}
+.titre{text-align: center;}
+.desc{text-align: justify;}
+.cellule{width: 300px;padding:50px;}
+.image{padding-left: 50px; padding-right: 50px;}
+
+/* Modifier praticien */
+#modif-prat input{background: rgba(0,0,0,0.5); color: SteelBlue;}
+#modif-prat th{background: rgba(0,0,0,0.5);}
+#modif-prat input[name=num]{width:60px!important;}
+#modif-prat input[type=text] {width: 125px;text-align: center;}
+/* Liste des frais */
+#frais{background: rgba(0,0,0,0.5);}
+
+/* ACCUEIL */
+#texte{margin: 0px 250px; color: white;}
+#texte p {text-shadow: 0px 0px 5px SteelBlue;font-family: "Trebuchet MS";font-size: 15px; text-align: justify; line-height: 2;}
+#texte #slogan{text-shadow: 1px 1px 5px SteelBlue;font-family:Georgia; font-size: 25px; text-align: center;}
+
+
+
+
+
+nav.menu-nav{
+	text-align: center;
+	background-color:#9e9e9e;
+	padding: 0.1px;
+}
+nav.menu-nav ul li.start{
+	display: inline-block;
+	list-style-type: none;
+}
+nav.menu-nav ul li.start a{
+	color:black;
+	background-color:#ffffff;
+	text-decoration: none;
+	padding: 10px;
+}
+nav.menu-nav ul li.start:hover a {
+	color: red;
+	background-color: #ffffff; 
+	transition: 0.3s;
+}
+
+header{
+	text-align: center;
+	background-color: #CBFFF7;
+	padding: 10px;
+}
+
+tr, td {
+	padding: 15px;
+	text-align: center;
+  }
