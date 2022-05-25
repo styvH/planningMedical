@@ -62,11 +62,6 @@ $type= $_POST['type'];
 
 $db=mysqli_connect("localhost","root","","planning_medical");
 
-
-$sqlJour="INSERT INTO journee VALUES(NULL, '$joursemaine', '$day', '$month', '$year')"or die(mysqli_connect_error());
-
-$req= mysqli_query($db,$sqlJour)or die(mysqli_connect_error());
-
 $idjournee = $db->insert_id;
 
 $sql="INSERT INTO activite (`Id_ACTIVITE`, `description`, `date_debut`, `heure_debut`, `heure_fin`,`nombreMedecinActuel`, `renouveler`, `derniere_minute`,  `valide`, `Id_TYPE_ACTIVITE`) 
