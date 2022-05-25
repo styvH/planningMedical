@@ -53,13 +53,22 @@ if(isset($_POST['ask'])){
 
 
 
-    $sql = "INSERT INTO support VALUES (NULL, '$post', '$idMed', NULL)";
-    $req= mysqli_query($db,$sql)or die(mysqli_connect_error());
-	header("Location: support.php");
-    echo "Votre demande à bien été transmise, coupon #".$db->insert_id;
-    echo " <br> Message : <br> <p>".$post."</p>";
 
-	unset($_POST['ask']);
+
+	if(isset($_GET['id']))
+	{
+		$coupon = $_GET['id'];
+
+			echo "Votre demande à bien été transmise, coupon #".$coupon;
+    		echo " <br> Message : <br> <p>".$post."</p>";
+	}
+	else{
+		$sql = "INSERT INTO support VALUES (NULL, '$post', '$idMed', NULL)";
+		$req= mysqli_query($db,$sql)or die(mysqli_connect_error());
+		header("location:support.php?id=$db->insert_id");
+	}	
+
+
 
 }
 

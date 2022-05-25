@@ -1,10 +1,7 @@
 
 <?php
 include ('connexion.php');
-if($_SESSION['ACCESS'] == "Med"){
-    header("Location: MenuRedirect.php");
-}
-else{
+
 if(isset($_POST['formid']))
 	{
 
@@ -85,5 +82,5 @@ else{
 	header('Location: ajoutActivite.php');
 	
 }
-}
+
 ?>

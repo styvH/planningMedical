@@ -160,7 +160,6 @@ mysqli_close($link);
 </CENTER>
 
 <br><br>
-<?php if($_SESSION['ACCESS'] == 'Resp') {?>
 
 <center>
 	<FORM ACTION="creerActivite.php">
@@ -168,7 +167,7 @@ mysqli_close($link);
   				</FORM>
 </center>
 
-<?php } ?><br>
+<br>
 <center>
 	<FORM ACTION="mesActivites.php">
     			<INPUT TYPE="SUBMIT" VALUE="Voir ses Activités" style="width: 200px; height: 40px;">
