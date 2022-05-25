@@ -1,5 +1,13 @@
 /* ALL */
-body{background: #888888;}
+
+body {
+	background: #888888;
+  	background-image: url('../img/background.png'); 
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
+}
+
 input, textarea, select, table{padding: 10px;color: rgb(0, 0, 0);text-shadow: 0 0 1px black;}
 table{color: rgb(0, 0, 0);}
 table{border-collapse:collapse}
@@ -116,6 +124,8 @@ h1{color: rgb(0, 0, 0); text-align: center;text-shadow: 2px 2px 2px black; paddi
 
 
 
+/*
+ex Nav block
 nav.menu-nav{
 	text-align: center;
 	background-color:#9e9e9e;
@@ -135,6 +145,63 @@ nav.menu-nav ul li.start:hover a {
 	color: red;
 	background-color: #ffffff; 
 	transition: 0.3s;
+} */
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+
+nav.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+nav.cart{
+    width: 40px;
+    cursor: pointer;
+}
+
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    padding-right: 40px;
+    text-align: right;
+    list-style-type: none;
+}
+
+ul li{
+    margin-right: 10px;
+
+}
+
+ul li a{
+    position: relative;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size:  16 px;
+
+}
+
+ul li a::after{
+    content:'';
+    background: #ffa400;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 38%;
+    height: 3px;
+    transform: translate(-50%,-5px);
+    transition: 0.3s;  
+}
+
+ul li a:hover::after{
+    width: 38px;
 }
 
 header{

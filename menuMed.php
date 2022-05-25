@@ -14,15 +14,14 @@
 <head>
 <meta charset="utf-8" />
 <style type="text/css">
-	<!--
+
 	@import URL(css/style.css);
-	@import URL(css/test.css);
-	-->
+
 </style>
 </head>
-<body background=img/>
+<body>
 <br>
-		<nav class ="menu-nav">
+		<nav class ="logo">
 		<ul>
 
 			<li class="start">
@@ -46,11 +45,11 @@
     			<INPUT TYPE="SUBMIT" VALUE="     Rejoindre Activités     " style="width: 300px; height: 40px;">
   				</FORM>
 
-				<FORM ACTION="consulterSesRapports.php">
+				<FORM ACTION="mesActivites.php">
     			<INPUT TYPE="SUBMIT" VALUE="Consulter Activités" style="width: 300px; height: 40px;">
   				</FORM>
 
-				<FORM ACTION="consulterSesRapports.php">
+				<FORM ACTION="#">
     			<INPUT TYPE="SUBMIT" VALUE="Consulter Plannings" style="width: 300px; height: 40px;">
   				</FORM>
 </CENTER>

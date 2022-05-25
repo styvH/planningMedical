@@ -14,14 +14,14 @@
 <head>
 <meta charset="utf-8" />
 <style type="text/css">
-	<!--
+
 	@import URL(css/style.css);
-	-->
+
 </style>
 </head>
-<body background=img/>
+<body>
 <br>
-		<nav class ="menu-nav">
+		<nav class ="cart">
 		<ul>
 
 			<li class="start">
@@ -36,12 +36,12 @@
 			</li>
 		</ul>
 	</nav>
-<center><h1><font color=>Menu Responsable</h1></center>
+<center><h1><font color='white'>Menu Responsable</h1></center>
 	<fieldset>
 <CENTER>
 				<p></p>
 				<fieldset>
-				<center><h2><font color=>Gestion Personnelle</h2></center>
+				<center><h2><font color='black'>Gestion Personnelle</h2></center>
 				<FORM ACTION="joinActivite.php">
     			<INPUT TYPE="SUBMIT" VALUE="  Rejoindre Activité  " style="width: 300px; height: 40px;">
   				</FORM>
