@@ -83,7 +83,13 @@ mysqli_close($link);
 </center>
 
 <br><br>
+<center>
+	<a href="downloadSecteur.php?name=listeSecteurs">
+    	<button style="width: 200px; height: 40px; background-color:aquamarine">Télecharger Format Excel</button>
+	</a>
+</center>
 
+<br><br>
 <center>
 	<FORM ACTION="menuRedirect.php">
     			<INPUT TYPE="SUBMIT" VALUE="Retour Menu" style="width: 200px; height: 40px;">

@@ -36,28 +36,37 @@
 			</li>
 		</ul>
 	</nav>
-<center><h1><font color=>Menu</h1></center>
+<center><h1><font color=>Menu Responsable</h1></center>
 	<fieldset>
 <CENTER>
 				<p></p>
-
+				<fieldset>
+				<center><h2><font color=>Gestion Personnelle</h2></center>
 				<FORM ACTION="joinActivite.php">
     			<INPUT TYPE="SUBMIT" VALUE="  Rejoindre Activité  " style="width: 300px; height: 40px;">
   				</FORM>
 
-				<FORM ACTION="joinActivitie.php">
-    			<INPUT TYPE="SUBMIT" VALUE="  Rejoindre Activité  " style="width: 300px; height: 40px;">
+				<FORM ACTION="mesActivites.php">
+    			<INPUT TYPE="SUBMIT" VALUE="  Mes Activités  " style="width: 300px; height: 40px;">
+  				</FORM>
+				  
+</fieldset> 
+<br>
+<fieldset>
+				<center><h2><font color=>Gestion Medecins</h2></center>
+
+
+				<FORM ACTION="listeActivites.php">
+    			<INPUT TYPE="SUBMIT" VALUE="     Gérer les Activités     "  style="width: 300px; height: 40px;">
   				</FORM>
 
+</fieldset>	
+<br>
+<fieldset>
+				<center><h2><font color=>Gestion des Activités</h2></center>
 				<FORM ACTION="creerActivite.php">
     			<INPUT TYPE="SUBMIT" VALUE="   Créer Activité   " style="width: 300px; height: 40px;">
   				</FORM>
-
-				<FORM ACTION="consulterRapport.php">
-    			<INPUT TYPE="SUBMIT" VALUE="  Attribuer Activité  " style="width: 300px; height: 40px;">
-  				</FORM>
-
-
   				<FORM ACTION="ajoutSecteur.php">
     			<INPUT TYPE="SUBMIT" VALUE="     Ajouter Secteur     "  style="width: 300px; height: 40px;">
   				</FORM>
@@ -74,14 +83,10 @@
     			<INPUT TYPE="SUBMIT" VALUE="   Consutler liste des Type Activités   "  style="width: 300px; height: 40px;">
   				</FORM>
 
-  				<FORM ACTION="listeActivites.php">
-    			<INPUT TYPE="SUBMIT" VALUE="     Rechercher Activité     "  style="width: 300px; height: 40px;">
-  				</FORM>
-
   				<FORM ACTION="">
     			<INPUT TYPE="SUBMIT" VALUE="     Consulter Tableaux     "  style="width: 300px; height: 40px;">
   				</FORM>
-
+</fieldset>
 </CENTER>	
 	</fieldset>
 	<br><br>
