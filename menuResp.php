@@ -24,6 +24,12 @@
 		<nav class ="cart">
 		<ul>
 
+            <li class="start">
+				
+				<a href="menuRedirect.php">Menu</a>
+				
+			</li>
+
 			<li class="start">
 				
 				<a href="Profil.php">Profil</a>
