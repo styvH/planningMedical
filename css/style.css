@@ -214,3 +214,13 @@ tr, td {
 	padding: 15px;
 	text-align: center;
   }
+
+.container{
+    display:flex;
+}
+.col1{
+ width:60%;
+}
+.col2{
+  width:40%;
+}

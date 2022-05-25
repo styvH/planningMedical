@@ -31,7 +31,7 @@
 			</li>
 			<li class="start">
 
-				<a href="#">Support</a>
+				<a href="support">Support</a>
 
 			</li>
 		</ul>

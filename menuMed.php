@@ -24,6 +24,12 @@
 		<nav class ="logo">
 		<ul>
 
+            <li class="start">
+				
+				<a href="menuRedirect.php">Menu</a>
+				
+			</li>
+
 			<li class="start">
 				
 				<a href="Profil.php">Profil</a>
@@ -31,7 +37,7 @@
 			</li>
 			<li class="start">
 
-				<a href="#">Support</a>
+				<a href="support">Support</a>
 
 			</li>
 		</ul>

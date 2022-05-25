@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 24 mai 2022 à 20:44
+-- Généré le : mer. 25 mai 2022 à 03:53
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -31,36 +31,34 @@ DROP TABLE IF EXISTS `activite`;
 CREATE TABLE IF NOT EXISTS `activite` (
   `Id_ACTIVITE` int NOT NULL AUTO_INCREMENT,
   `description` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_journee` int DEFAULT NULL,
+  `derniere_minute` tinyint(1) NOT NULL DEFAULT '0',
+  `Id_TYPE_ACTIVITE` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nombreMedecinActuel` int NOT NULL DEFAULT '0',
+  `Id_Medecin` int DEFAULT NULL,
+  `valide` tinyint(1) DEFAULT '0',
+  `date_debut` date NOT NULL,
   `heure_debut` int NOT NULL,
   `heure_fin` int NOT NULL,
-  `id_journee` int NOT NULL,
-  `nombreMedecinActuel` int NOT NULL DEFAULT '0',
   `renouveler` tinyint(1) NOT NULL DEFAULT '0',
-  `derniere_minute` tinyint(1) NOT NULL DEFAULT '0',
-  `valide` tinyint(1) DEFAULT '0',
-  `Id_Medecin` int DEFAULT NULL,
-  `Id_TYPE_ACTIVITE` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`Id_ACTIVITE`),
   KEY `Id_Medecin` (`Id_Medecin`),
   KEY `Id_TYPE_ACTIVITE` (`Id_TYPE_ACTIVITE`),
   KEY `id_jour_debut` (`id_journee`),
   KEY `heure_debut` (`heure_debut`),
   KEY `heure_fin` (`heure_fin`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `activite`
 --
 
-INSERT INTO `activite` (`Id_ACTIVITE`, `description`, `heure_debut`, `heure_fin`, `id_journee`, `nombreMedecinActuel`, `renouveler`, `derniere_minute`, `valide`, `Id_Medecin`, `Id_TYPE_ACTIVITE`) VALUES
-(1, 'test', 4, 8, 2, 0, 0, 0, NULL, NULL, 'A'),
-(2, 'test', 4, 8, 3, 0, 0, 0, NULL, NULL, 'A'),
-(3, 'test', 4, 8, 4, 0, 0, 0, NULL, NULL, 'A'),
-(4, 'test', 4, 8, 5, 0, 0, 0, NULL, NULL, 'A'),
-(5, 'test', 4, 8, 6, 0, 0, 0, NULL, NULL, 'A'),
-(6, 'test', 4, 8, 7, 0, 0, 0, NULL, NULL, 'A'),
-(7, 'test', 4, 8, 8, 0, 0, 0, NULL, NULL, 'A'),
-(8, 'test', 4, 8, 9, 0, 0, 0, NULL, NULL, 'A');
+INSERT INTO `activite` (`Id_ACTIVITE`, `description`, `id_journee`, `derniere_minute`, `Id_TYPE_ACTIVITE`, `nombreMedecinActuel`, `Id_Medecin`, `valide`, `date_debut`, `heure_debut`, `heure_fin`, `renouveler`) VALUES
+(8, 'test', 9, 0, 'A', 0, NULL, NULL, '2022-05-10', 4, 8, 0),
+(10, 'd', 11, 1, 'G', 0, NULL, NULL, '2022-05-17', 2, 1, 1),
+(11, 'gzgz', 12, 0, 'G', 1, NULL, NULL, '2022-05-02', 3, 7, 0),
+(12, 'tzg', 13, 0, 'A', 1, NULL, NULL, '2022-05-29', 2, 7, 0),
+(13, 'zfzf', 14, 0, 'G', 1, NULL, NULL, '2022-05-24', 3, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -72,12 +70,18 @@ DROP TABLE IF EXISTS `effectuer`;
 CREATE TABLE IF NOT EXISTS `effectuer` (
   `Id_Medecin` int NOT NULL,
   `Id_ACTIVITE` int NOT NULL,
-  `idJournee` int NOT NULL,
-  `idHeure` int NOT NULL,
   `astreinte__o_n_` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`Id_Medecin`,`Id_ACTIVITE`),
   KEY `Id_ACTIVITE` (`Id_ACTIVITE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `effectuer`
+--
+
+INSERT INTO `effectuer` (`Id_Medecin`, `Id_ACTIVITE`, `astreinte__o_n_`) VALUES
+(2, 12, NULL),
+(2, 13, NULL);
 
 -- --------------------------------------------------------
 
@@ -135,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `journee` (
   `mois` int NOT NULL,
   `annee` int NOT NULL,
   PRIMARY KEY (`idJournee`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `journee`
@@ -150,7 +154,12 @@ INSERT INTO `journee` (`idJournee`, `jourSemaine`, `jourDate`, `mois`, `annee`) 
 (6, 'Jeudi', 5, 5, 2022),
 (7, 'Vendredi', 6, 5, 2022),
 (8, 'Samedi', 7, 5, 2022),
-(9, 'Dimanche', 8, 5, 2022);
+(9, 'Dimanche', 8, 5, 2022),
+(10, 'Mercredi', 11, 5, 2022),
+(11, 'Mardi', 17, 5, 2022),
+(12, 'Lundi', 2, 5, 2022),
+(13, 'Dimanche', 29, 5, 2022),
+(14, 'Mardi', 24, 5, 2022);
 
 -- --------------------------------------------------------
 
@@ -169,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   `nombreMinimumGarde` int DEFAULT '0',
   `nombreMaximumGarde` int DEFAULT '0',
   `login` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `mdp` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mdp` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idMedecin`),
   UNIQUE KEY `login` (`login`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -182,7 +191,7 @@ INSERT INTO `medecin` (`idMedecin`, `nom`, `prenom`, `coordonnees`, `mail`, `adr
 (1, 'FIRST', 'prems', NULL, NULL, NULL, 0, 0, 'first', 'az'),
 (2, 'SECOND', 'deux', 'ze', 'ze', 'ez', 0, 0, 'second', 'az'),
 (3, 'RESPFIRST', 'RespPrenom', 'cooo', 'm@mal.com', 'adrest', 0, 0, 'resp', 'az'),
-(4, 'test', 'az', 'de', 'ef', 'ef', 0, 0, 'test', 'az');
+(4, 'test', 'az', 'de', 'ef@gmail.com', 'ef', 2, 5, 'test', '$2y$12$X/CidPVaRCvz8rtWfSVHmOg2xRx51xPneT1gYJLa.epVdw4CQjGPC');
 
 -- --------------------------------------------------------
 
@@ -223,6 +232,7 @@ CREATE TABLE IF NOT EXISTS `secteur` (
 --
 
 INSERT INTO `secteur` (`Id_SECTEUR`, `nomSecteur`, `nombreMedecinRequis`) VALUES
+('', '', 0),
 ('secAc', 'etfe', 3),
 ('TST', 'secteur test', 3);
 
@@ -242,6 +252,22 @@ CREATE TABLE IF NOT EXISTS `stock` (
   `nomHeuresTravaille` int NOT NULL,
   PRIMARY KEY (`Id_Medecin`,`mois`,`annee`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `support`
+--
+
+DROP TABLE IF EXISTS `support`;
+CREATE TABLE IF NOT EXISTS `support` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `post` text NOT NULL,
+  `IdMedecin` int DEFAULT NULL,
+  `retour` text,
+  PRIMARY KEY (`id`),
+  KEY `Id_Medecin` (`IdMedecin`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -300,6 +326,12 @@ ALTER TABLE `responsable_planning`
 --
 ALTER TABLE `stock`
   ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`Id_Medecin`) REFERENCES `medecin` (`idMedecin`);
+
+--
+-- Contraintes pour la table `support`
+--
+ALTER TABLE `support`
+  ADD CONSTRAINT `support_ibfk_1` FOREIGN KEY (`IdMedecin`) REFERENCES `medecin` (`idMedecin`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Contraintes pour la table `type_activite`
