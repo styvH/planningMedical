@@ -41,7 +41,11 @@
 <CENTER>
 				<p></p>
 
-				<FORM ACTION="consulterRapport.php">
+				<FORM ACTION="joinActivite.php">
+    			<INPUT TYPE="SUBMIT" VALUE="  Rejoindre Activité  " style="width: 300px; height: 40px;">
+  				</FORM>
+
+				<FORM ACTION="joinActivitie.php">
     			<INPUT TYPE="SUBMIT" VALUE="  Rejoindre Activité  " style="width: 300px; height: 40px;">
   				</FORM>
 

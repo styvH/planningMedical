@@ -42,7 +42,7 @@
 				<p></p>
 		<fieldset>		
 <CENTER>
-				<FORM ACTION="SaisieRapportActivité.php">
+				<FORM ACTION="joinActivite.php">
     			<INPUT TYPE="SUBMIT" VALUE="     Rejoindre Activités     " style="width: 300px; height: 40px;">
   				</FORM>
 
