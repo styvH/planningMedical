@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 25 mai 2022 à 14:42
+-- Généré le : mer. 25 mai 2022 à 15:18
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -31,7 +31,6 @@ DROP TABLE IF EXISTS `activite`;
 CREATE TABLE IF NOT EXISTS `activite` (
   `Id_ACTIVITE` int NOT NULL AUTO_INCREMENT,
   `description` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `id_journee` int DEFAULT NULL,
   `derniere_minute` tinyint(1) NOT NULL DEFAULT '0',
   `Id_TYPE_ACTIVITE` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `nombreMedecinActuel` int NOT NULL DEFAULT '0',
@@ -43,22 +42,24 @@ CREATE TABLE IF NOT EXISTS `activite` (
   `renouveler` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id_ACTIVITE`),
   KEY `Id_Medecin` (`Id_Medecin`),
-  KEY `Id_TYPE_ACTIVITE` (`Id_TYPE_ACTIVITE`),
-  KEY `id_jour_debut` (`id_journee`),
-  KEY `heure_debut` (`heure_debut`),
-  KEY `heure_fin` (`heure_fin`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  KEY `Id_TYPE_ACTIVITE` (`Id_TYPE_ACTIVITE`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `activite`
 --
 
-INSERT INTO `activite` (`Id_ACTIVITE`, `description`, `id_journee`, `derniere_minute`, `Id_TYPE_ACTIVITE`, `nombreMedecinActuel`, `Id_Medecin`, `valide`, `date_debut`, `heure_debut`, `heure_fin`, `renouveler`) VALUES
-(8, 'test', 9, 0, 'A', 0, NULL, NULL, '2022-05-10', 4, 8, 0),
-(10, 'd', 11, 1, 'G', 0, NULL, NULL, '2022-05-17', 2, 1, 1),
-(11, 'gzgz', 12, 0, 'G', 1, NULL, NULL, '2022-05-02', 3, 7, 0),
-(12, 'tzg', 13, 0, 'A', 1, NULL, NULL, '2022-05-29', 2, 7, 0),
-(13, 'zfzf', 14, 0, 'G', 1, NULL, NULL, '2022-05-24', 3, 5, 0);
+INSERT INTO `activite` (`Id_ACTIVITE`, `description`, `derniere_minute`, `Id_TYPE_ACTIVITE`, `nombreMedecinActuel`, `Id_Medecin`, `valide`, `date_debut`, `heure_debut`, `heure_fin`, `renouveler`) VALUES
+(8, 'test', 0, 'A', 0, NULL, NULL, '2022-05-10', 4, 8, 0),
+(10, 'd', 1, 'G', 0, NULL, NULL, '2022-05-17', 2, 1, 1),
+(11, 'gzgz', 0, 'G', 1, NULL, NULL, '2022-05-02', 3, 7, 0),
+(12, 'tzg', 0, 'A', 1, NULL, NULL, '2022-05-29', 2, 7, 0),
+(13, 'zfzf', 0, 'G', 1, NULL, NULL, '2022-05-24', 3, 5, 0),
+(14, 'afa', 0, 'A', 0, NULL, NULL, '2022-05-19', 4, 17, 0),
+(17, 'test', 0, 'A', 1, NULL, NULL, '2022-05-27', 13, 16, 0),
+(18, '', 0, 'G', 0, NULL, NULL, '2022-05-28', 2, 6, 0),
+(19, '', 0, 'A', 0, NULL, NULL, '2022-05-25', 1, 5, 0),
+(20, '', 0, 'A', 0, NULL, NULL, '2022-05-10', 7, 11, 0);
 
 -- --------------------------------------------------------
 
@@ -81,85 +82,8 @@ CREATE TABLE IF NOT EXISTS `effectuer` (
 
 INSERT INTO `effectuer` (`Id_Medecin`, `Id_ACTIVITE`, `astreinte__o_n_`) VALUES
 (2, 12, NULL),
-(2, 13, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `heure`
---
-
-DROP TABLE IF EXISTS `heure`;
-CREATE TABLE IF NOT EXISTS `heure` (
-  `idHeure` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`idHeure`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Déchargement des données de la table `heure`
---
-
-INSERT INTO `heure` (`idHeure`) VALUES
-(0),
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9),
-(10),
-(11),
-(12),
-(13),
-(14),
-(15),
-(16),
-(17),
-(18),
-(19),
-(20),
-(21),
-(22),
-(23);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `journee`
---
-
-DROP TABLE IF EXISTS `journee`;
-CREATE TABLE IF NOT EXISTS `journee` (
-  `idJournee` int NOT NULL AUTO_INCREMENT,
-  `jourSemaine` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `jourDate` int NOT NULL,
-  `mois` int NOT NULL,
-  `annee` int NOT NULL,
-  PRIMARY KEY (`idJournee`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Déchargement des données de la table `journee`
---
-
-INSERT INTO `journee` (`idJournee`, `jourSemaine`, `jourDate`, `mois`, `annee`) VALUES
-(1, 'Vendredi', 8, 4, 2022),
-(2, 'Mercredi', 4, 5, 2022),
-(3, 'Lundi', 2, 5, 2022),
-(4, 'Mardi', 3, 5, 2022),
-(5, 'Mercredi', 4, 5, 2022),
-(6, 'Jeudi', 5, 5, 2022),
-(7, 'Vendredi', 6, 5, 2022),
-(8, 'Samedi', 7, 5, 2022),
-(9, 'Dimanche', 8, 5, 2022),
-(10, 'Mercredi', 11, 5, 2022),
-(11, 'Mardi', 17, 5, 2022),
-(12, 'Lundi', 2, 5, 2022),
-(13, 'Dimanche', 29, 5, 2022),
-(14, 'Mardi', 24, 5, 2022);
+(2, 13, NULL),
+(4, 17, NULL);
 
 -- --------------------------------------------------------
 
@@ -267,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `support` (
   `retour` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `Id_Medecin` (`IdMedecin`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `support`
@@ -358,7 +282,23 @@ INSERT INTO `support` (`id`, `post`, `IdMedecin`, `retour`) VALUES
 (87, 'ff', 4, NULL),
 (88, 'test', 4, NULL),
 (89, 'ff', 4, NULL),
-(90, 'Dernier Ticket\r\n', 4, NULL);
+(90, 'Dernier Ticket\r\n', 4, NULL),
+(91, 'Dernier Ticket\r\n', 4, NULL),
+(92, 'Voici', 4, NULL),
+(93, 'ff', 4, NULL),
+(94, 'tet', 4, NULL),
+(95, 'dd', 4, NULL),
+(96, 'ddd', 4, NULL),
+(97, 'ff', 4, NULL),
+(98, 'dd', 4, NULL),
+(99, 'dd', 4, NULL),
+(100, 'ff', 4, NULL),
+(101, 'ff', 4, NULL),
+(102, 'Nwone', 4, NULL),
+(103, 'dd', 4, NULL),
+(104, 'az', 4, NULL),
+(105, 'ff', 4, NULL),
+(106, '2224144AFZF', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -394,10 +334,7 @@ INSERT INTO `type_activite` (`Id_TYPE_ACTIVITE`, `abreviation`, `libelle_type`, 
 --
 ALTER TABLE `activite`
   ADD CONSTRAINT `activite_ibfk_1` FOREIGN KEY (`Id_Medecin`) REFERENCES `responsable_planning` (`idMedecin`),
-  ADD CONSTRAINT `activite_ibfk_3` FOREIGN KEY (`Id_TYPE_ACTIVITE`) REFERENCES `type_activite` (`Id_TYPE_ACTIVITE`),
-  ADD CONSTRAINT `activite_ibfk_4` FOREIGN KEY (`id_journee`) REFERENCES `journee` (`idJournee`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `activite_ibfk_6` FOREIGN KEY (`heure_debut`) REFERENCES `heure` (`idHeure`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `activite_ibfk_7` FOREIGN KEY (`heure_fin`) REFERENCES `heure` (`idHeure`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `activite_ibfk_3` FOREIGN KEY (`Id_TYPE_ACTIVITE`) REFERENCES `type_activite` (`Id_TYPE_ACTIVITE`);
 
 --
 -- Contraintes pour la table `effectuer`
