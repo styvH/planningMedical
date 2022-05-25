@@ -64,7 +64,7 @@
                 $idSec=$ligne['Id_SECTEUR'];
                 $nomSec = $ligne['nomSecteur'];
                 $nbMed = $ligne['nombreMedecinRequis'];
-                echo "<option value='$idSex'>$idSec - $nomSec - $nbMed</option>";
+                echo "<option value='$idSec'>$idSec - $nomSec - $nbMed</option>";
     
             $ligne = mysqli_fetch_assoc($result);
             
