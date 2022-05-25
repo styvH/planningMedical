@@ -45,10 +45,10 @@
 	</tr>
 
 	<tr>
-	<td>Description du type:</td>
+	<td>Secteur :</td>
 	<td>
 	<select type="text" name="type" id = "type" required>
-    <option value=NULL></option>
+    <option value=NULL>ID - Nom - NbMedecins Requis</option>
 	
 	<?php
     $link=mysqli_connect("localhost","root","","planning_medical");

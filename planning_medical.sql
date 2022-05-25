@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 25 mai 2022 à 15:18
+-- Généré le : mer. 25 mai 2022 à 18:12
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `activite` (
   PRIMARY KEY (`Id_ACTIVITE`),
   KEY `Id_Medecin` (`Id_Medecin`),
   KEY `Id_TYPE_ACTIVITE` (`Id_TYPE_ACTIVITE`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `activite`
@@ -59,7 +59,8 @@ INSERT INTO `activite` (`Id_ACTIVITE`, `description`, `derniere_minute`, `Id_TYP
 (17, 'test', 0, 'A', 1, NULL, NULL, '2022-05-27', 13, 16, 0),
 (18, '', 0, 'G', 0, NULL, NULL, '2022-05-28', 2, 6, 0),
 (19, '', 0, 'A', 0, NULL, NULL, '2022-05-25', 1, 5, 0),
-(20, '', 0, 'A', 0, NULL, NULL, '2022-05-10', 7, 11, 0);
+(20, '', 0, 'A', 0, NULL, NULL, '2022-05-10', 7, 11, 0),
+(21, 'test', 1, 'G', 0, NULL, NULL, '2022-05-25', 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -75,15 +76,6 @@ CREATE TABLE IF NOT EXISTS `effectuer` (
   PRIMARY KEY (`Id_Medecin`,`Id_ACTIVITE`),
   KEY `Id_ACTIVITE` (`Id_ACTIVITE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Déchargement des données de la table `effectuer`
---
-
-INSERT INTO `effectuer` (`Id_Medecin`, `Id_ACTIVITE`, `astreinte__o_n_`) VALUES
-(2, 12, NULL),
-(2, 13, NULL),
-(4, 17, NULL);
 
 -- --------------------------------------------------------
 
@@ -156,9 +148,14 @@ CREATE TABLE IF NOT EXISTS `secteur` (
 --
 
 INSERT INTO `secteur` (`Id_SECTEUR`, `nomSecteur`, `nombreMedecinRequis`) VALUES
-('', '', 0),
-('secAc', 'etfe', 3),
-('TST', 'secteur test', 3);
+('ADM', 'Administratif', 0),
+('MAT', 'Maternité', 0),
+('NN', 'Néonatologie', 1),
+('REANN', 'Réanimation Néonatale', 2),
+('REAPED', 'Réanimation Pédiatrique', 1),
+('SCPED', 'Soins Continus Pédiatriques', 1),
+('SINN', 'Soins Intensifs néonatals', 1),
+('UK', 'Unité Kangourou', 1);
 
 -- --------------------------------------------------------
 
@@ -309,7 +306,7 @@ INSERT INTO `support` (`id`, `post`, `IdMedecin`, `retour`) VALUES
 DROP TABLE IF EXISTS `type_activite`;
 CREATE TABLE IF NOT EXISTS `type_activite` (
   `Id_TYPE_ACTIVITE` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `abreviation` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `abreviation` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'X',
   `libelle_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `description_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `secteur` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -322,8 +319,31 @@ CREATE TABLE IF NOT EXISTS `type_activite` (
 --
 
 INSERT INTO `type_activite` (`Id_TYPE_ACTIVITE`, `abreviation`, `libelle_type`, `description_type`, `secteur`) VALUES
-('A', 'ast', 'Astreinte', NULL, NULL),
-('G', 'gar', 'Garde', 'Les médecins s\'occupent des secteurs', NULL);
+('?abs?', '?', '?absence?', 'absence en attente validation', NULL),
+('A', 'A', 'Astreinte', NULL, NULL),
+('acc T', 'AT', 'accident de travail', NULL, NULL),
+('adm', 'X', 'Administratif', NULL, NULL),
+('arr M', 'AM', 'Arrêt Maladie', NULL, NULL),
+('C ann', 'CA', 'Congés Annuel', NULL, NULL),
+('C bon', 'B', 'Congés Bonifié', NULL, NULL),
+('C mat', 'T', 'Congés Maternité', NULL, NULL),
+('CES', 'IG', 'CESISMA', NULL, NULL),
+('CET', 'CET', 'congés sur CET', NULL, NULL),
+('DISP', 'D', 'disponibilité', NULL, NULL),
+('ENS', 'ES', 'Enseignement', NULL, NULL),
+('EVA', 'E', 'EVASAN', NULL, NULL),
+('FORM', 'F', 'Formation', 'Formation pour soi', NULL),
+('G', 'GAR', 'Garde', 'Les médecins s\'occupent des secteurs', NULL),
+('MIS', 'MI', 'Mission', NULL, NULL),
+('RECUP', 'RQ', 'Récupération', NULL, NULL),
+('REP A', 'RQ', 'Repos Astreinte', NULL, NULL),
+('REP G', 'RQ', 'Repos Garde', NULL, NULL),
+('RN', 'X', 'Clinique RN', NULL, NULL),
+('RP', 'X', 'Clinique RP', NULL, NULL),
+('RTT', 'RT', 'RTT', NULL, NULL),
+('SC', 'X', 'Clinique SC', NULL, NULL),
+('UK', 'X', 'Clinique UK', NULL, NULL),
+('UMPS', 'X', 'Clinique UMPS', NULL, NULL);
 
 --
 -- Contraintes pour les tables déchargées
@@ -360,12 +380,6 @@ ALTER TABLE `stock`
 --
 ALTER TABLE `support`
   ADD CONSTRAINT `support_ibfk_1` FOREIGN KEY (`IdMedecin`) REFERENCES `medecin` (`idMedecin`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Contraintes pour la table `type_activite`
---
-ALTER TABLE `type_activite`
-  ADD CONSTRAINT `type_activite_ibfk_1` FOREIGN KEY (`secteur`) REFERENCES `secteur` (`Id_SECTEUR`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
