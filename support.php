@@ -43,7 +43,7 @@
 <center>
 <FORM METHOD="POST">
 
-	<td><textarea name="post" id = "post" rows="5" cols="33" placeholder="Quel est le problème ?" required></textarea><br></br></td>
+	<td><textarea name="post" id = "post" rows="5" cols="33" placeholder="Quel est le problème ?" minlength="11" maxlength="200" required></textarea><br></br></td>
     <INPUT TYPE="SUBMIT" id='ask' name = 'ask' VALUE="Send Ticket">
     <br><br>
     <?php
@@ -52,22 +52,13 @@ if(isset($_POST['ask'])){
     $post = $_POST['post'];
 
 
-
-
-
-	if(isset($_GET['id']))
-	{
-		$coupon = $_GET['id'];
-
-			echo "Votre demande à bien été transmise, coupon #".$coupon;
-    		echo " <br> Message : <br> <p>".$post."</p>";
-	}
-	else{
 		$sql = "INSERT INTO support VALUES (NULL, '$post', '$idMed', NULL)";
 		$req= mysqli_query($db,$sql)or die(mysqli_connect_error());
-		header("location:support.php?id=$db->insert_id");
-	}	
 
+header("refresh:3 ; url=support.php");
+			echo "Votre demande à bien été transmise, coupon #".$db->insert_id;
+    		echo " <br> Message : <br> <p>".$post."</p>";
+			
 
 
 }

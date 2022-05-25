@@ -81,7 +81,7 @@
 
 	
 	<td>
-	<select type="text" name="type" id = "type">
+	<select type="text" name="type" id = "type" required>
     <option value=NULL></option>
 	
 	<?php

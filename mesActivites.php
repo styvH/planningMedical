@@ -152,7 +152,7 @@ while($ligne)
 
     echo "<CENTER><H3>Terminés</H3></CENTER>";
 
-$sql= "SELECT * FROM activite where date_debut > CURDATE() AND Id_Activite IN (SELECT Id_Activite FROM effectuer WHERE Id_Medecin = '$idMed') ORDER BY date_debut";
+$sql= "SELECT * FROM activite where date_debut < CURDATE() AND Id_Activite IN (SELECT Id_Activite FROM effectuer WHERE Id_Medecin = '$idMed') ORDER BY date_debut";
  
 $result=mysqli_query($link,$sql);   
 $ligne = mysqli_fetch_assoc($result);
