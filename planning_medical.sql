@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 25 mai 2022 à 03:53
+-- Généré le : mer. 25 mai 2022 à 14:42
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -262,12 +262,103 @@ CREATE TABLE IF NOT EXISTS `stock` (
 DROP TABLE IF EXISTS `support`;
 CREATE TABLE IF NOT EXISTS `support` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `post` text NOT NULL,
+  `post` text COLLATE utf8_unicode_ci NOT NULL,
   `IdMedecin` int DEFAULT NULL,
-  `retour` text,
+  `retour` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `Id_Medecin` (`IdMedecin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `support`
+--
+
+INSERT INTO `support` (`id`, `post`, `IdMedecin`, `retour`) VALUES
+(1, 'test', 4, NULL),
+(2, 'test', 4, NULL),
+(8, 'tee', 4, NULL),
+(9, 'tee', 4, NULL),
+(10, 'Ceci est un test de ticket', 4, NULL),
+(11, 'Ceci est un test de ticket', 4, NULL),
+(12, 'Ceci est un test de ticket', 4, NULL),
+(13, 'Ceci est un test de ticket', 4, NULL),
+(14, 'For What', 4, NULL),
+(15, 'For What', 4, NULL),
+(16, '', 4, NULL),
+(17, '', 4, NULL),
+(18, '', 4, NULL),
+(19, '', 4, NULL),
+(20, '', 4, NULL),
+(21, '', 4, NULL),
+(22, '', 4, NULL),
+(23, 'ff', 4, NULL),
+(24, 'ffff', 4, NULL),
+(25, 'ff', 4, NULL),
+(26, 'ff', 4, NULL),
+(27, 'ff', 4, NULL),
+(28, 'ff', 4, NULL),
+(29, '', 4, NULL),
+(30, '', 4, NULL),
+(31, '', 4, NULL),
+(32, '', 4, NULL),
+(33, '', 4, NULL),
+(34, '', 4, NULL),
+(35, '', 4, NULL),
+(36, '', 4, NULL),
+(37, 'dzfaf', 4, NULL),
+(38, 'dzfaf', 4, NULL),
+(39, 'dzfaf', 4, NULL),
+(40, '', 4, NULL),
+(41, '', 4, NULL),
+(42, '', 4, NULL),
+(43, '', 4, NULL),
+(44, '', 4, NULL),
+(45, '', 4, NULL),
+(46, '', 4, NULL),
+(47, '', 4, NULL),
+(48, '', 4, NULL),
+(49, '', 4, NULL),
+(50, '', 4, NULL),
+(51, '', 4, NULL),
+(52, '', 4, NULL),
+(53, '', 4, NULL),
+(54, '', 4, NULL),
+(55, '', 4, NULL),
+(56, '', 4, NULL),
+(57, '', 4, NULL),
+(58, '', 4, NULL),
+(59, '', 4, NULL),
+(60, '', 4, NULL),
+(61, '', 4, NULL),
+(62, '', 4, NULL),
+(63, '', 4, NULL),
+(64, '', 4, NULL),
+(65, '', 4, NULL),
+(66, '', 4, NULL),
+(67, '', 4, NULL),
+(68, 'edd', 4, NULL),
+(69, '', 4, NULL),
+(70, 'ff', 4, NULL),
+(71, 'ff', 4, NULL),
+(72, 'ff', 4, NULL),
+(73, 'dd', 4, NULL),
+(74, 'dd', 4, NULL),
+(75, 'ddd', 4, NULL),
+(76, 'test', 4, NULL),
+(77, 'test', 4, NULL),
+(78, 'test', 4, NULL),
+(79, 'test', 4, NULL),
+(80, 'test', 4, NULL),
+(81, 'teef', 4, NULL),
+(82, 'teef', 4, NULL),
+(83, 'teef', 4, NULL),
+(84, 'ff', 4, NULL),
+(85, 'ff', 4, NULL),
+(86, 'ff', 4, NULL),
+(87, 'ff', 4, NULL),
+(88, 'test', 4, NULL),
+(89, 'ff', 4, NULL),
+(90, 'Dernier Ticket\r\n', 4, NULL);
 
 -- --------------------------------------------------------
 
