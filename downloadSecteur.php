@@ -1,6 +1,5 @@
 <?php 
-header("Content-type: application/vdn.ms-excel");
-header("Content-Disposition: attachment; filename=listeSecteurs.com.xls");
+include('excelWriterDownload.php');
 
  $link=mysqli_connect("localhost","root","","planning_medical");
 
