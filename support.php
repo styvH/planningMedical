@@ -47,7 +47,7 @@
     <INPUT TYPE="SUBMIT" id='ask' name = 'ask' VALUE="Send Ticket">
     <br><br>
     <?php
-if($_POST['post'] != NULL){
+if(isset($_POST['ask'])){
 
     $post = $_POST['post'];
 
@@ -57,9 +57,9 @@ if($_POST['post'] != NULL){
     $req= mysqli_query($db,$sql)or die(mysqli_connect_error());
 	header("Location: support.php");
     echo "Votre demande à bien été transmise, coupon #".$db->insert_id;
-    echo " <br> Message : <br> <p>".$_POST['post']."</p>";
+    echo " <br> Message : <br> <p>".$post."</p>";
 
-	$_POST['post'] = NULL;
+	unset($_POST['ask']);
 
 }
 
