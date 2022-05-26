@@ -5,9 +5,7 @@
 <meta charset="utf-8" />
 
 <style type="text/css">
-	<!--
 	@import URL(css/style.css);
-	-->
 </style>
 </head>
 <body background=img/>
@@ -108,9 +106,7 @@ $resultat = mysqli_fetch_assoc($result);
 	</center>
 	</form>
 	<footer>
-	<p>
-		Copyright &copy; HS_Prod - 2019-2021 - All Right Reserved
-	</p>
+
 </footer>
 
 </body>	

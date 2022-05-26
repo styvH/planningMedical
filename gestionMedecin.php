@@ -19,7 +19,7 @@
 
 </style>
 </head>
-<body style = 'text-align: center'>
+<body>
 <br>
 		<nav class ="cart">
 		<ul>
@@ -42,12 +42,12 @@
 			</li>
 		</ul>
 	</nav>
-<h1><font color='white'>Menu Responsable</h1>
+<center><h1><font color='white'>Menu Responsable</h1></center>
 	<fieldset>
-
+<CENTER>
 				<p></p>
 				<fieldset>
-				<h2><font color='black'>Gestion Personnelle</h2>
+				<center><h2><font color='black'>Gestion Personnelle</h2></center>
 				<FORM ACTION="joinActivite.php">
     			<INPUT TYPE="SUBMIT" VALUE="  Rejoindre Activité  " style="width: 300px; height: 40px;">
   				</FORM>
@@ -59,17 +59,17 @@
 </fieldset> 
 <br>
 <fieldset>
-				<h2><font color=>Gestion Medecins</h2>
+				<center><h2><font color=>Gestion Medecins</h2></center>
 
 
-				<FORM ACTION="gestionMedecin.php">
+				<FORM ACTION="listeActivites.php">
     			<INPUT TYPE="SUBMIT" VALUE="     Gérer les Activités     "  style="width: 300px; height: 40px;">
   				</FORM>
 
-</fieldset>
+</fieldset>	
 <br>
 <fieldset>
-				<h2><font color=>Gestion des Activités</h2>
+				<center><h2><font color=>Gestion des Activités</h2></center>
 				<FORM ACTION="creerActivite.php">
     			<INPUT TYPE="SUBMIT" VALUE="   Créer Activité   " style="width: 300px; height: 40px;">
   				</FORM>
@@ -89,18 +89,18 @@
     			<INPUT TYPE="SUBMIT" VALUE="   Consutler liste des Type Activités   "  style="width: 300px; height: 40px;">
   				</FORM>
 
-  				<FORM ACTION="listeTableaux.php">
+  				<FORM ACTION="">
     			<INPUT TYPE="SUBMIT" VALUE="     Consulter Tableaux     "  style="width: 300px; height: 40px;">
   				</FORM>
 </fieldset>
-	
+</CENTER>	
 	</fieldset>
 	<br><br>
-
+<center>
 	<FORM ACTION="deco.php">
     			<INPUT TYPE="SUBMIT" VALUE="Déconnexion">
   				</FORM>
-			
+</center>			
 </body>
 </html>
 <?php	
@@ -108,3 +108,5 @@
 	else
 		header('Location: Accueil.php');
 ?>
+		
+		

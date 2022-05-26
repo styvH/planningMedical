@@ -19,7 +19,7 @@
 
 </style>
 </head>
-<body>
+<body style = 'text-align: center'>
 <br>
 		<nav class ="logo">
 		<ul>
@@ -42,11 +42,11 @@
 			</li>
 		</ul>
 	</nav>
-<center><h1><font color=>Menu</h1></center>
+<h1><font color=>Menu</h1>
 
 				<p></p>
 		<fieldset>		
-<CENTER>
+
 				<FORM ACTION="joinActivite.php">
     			<INPUT TYPE="SUBMIT" VALUE="     Rejoindre Activités     " style="width: 300px; height: 40px;">
   				</FORM>
@@ -55,17 +55,21 @@
     			<INPUT TYPE="SUBMIT" VALUE="Consulter Activités" style="width: 300px; height: 40px;">
   				</FORM>
 
-				<FORM ACTION="#">
+				<FORM ACTION="consulterPlanning.php">
     			<INPUT TYPE="SUBMIT" VALUE="Consulter Plannings" style="width: 300px; height: 40px;">
   				</FORM>
-</CENTER>
+
+				<FORM ACTION="listeTableaux.php">
+    			<INPUT TYPE="SUBMIT" VALUE="     Consulter Tableaux     "  style="width: 300px; height: 40px;">
+  				</FORM>
+
 </fieldset>
 					<br><br>
-<center>
+
 	<FORM ACTION="deco.php">
     			<INPUT TYPE="SUBMIT" VALUE="Déconnexion">
   				</FORM>
-</center>	
+	
 </body>
 </html>
 
