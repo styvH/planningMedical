@@ -59,7 +59,7 @@
     			<INPUT TYPE="SUBMIT" VALUE="Consulter Plannings" style="width: 300px; height: 40px;">
   				</FORM>
 				<FORM ACTION="consulterPlanningGarde.php">
-    			<INPUT TYPE="SUBMIT" VALUE="Consulter Planning Garde" style="width: 300px; height: 40px;">
+    			<INPUT TYPE="SUBMIT" VALUE="Consulter Planning Gardes" style="width: 300px; height: 40px;">
   				</FORM>
 				<FORM ACTION="listeTableaux.php">
     			<INPUT TYPE="SUBMIT" VALUE="     Consulter Tableaux     "  style="width: 300px; height: 40px;">
