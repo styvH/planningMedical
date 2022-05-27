@@ -55,8 +55,7 @@ $sql= "SELECT * from medecin where login = '$login'";
 $result=mysqli_query($db,$sql);   
 $resultat = mysqli_fetch_assoc($result);
 
-
-		if( strtoupper($login)  == strtoupper($resultat['login'])) //stroupper pour tout mettre en majuscule soit à la même hauteur pour éviter les erreurs de majuscule
+	if(isset($resultat) && strtoupper($login)  == strtoupper($resultat['login'])) //stroupper pour tout mettre en majuscule soit à la même hauteur pour éviter les erreurs de majuscule	
 		{
 			if($password == $resultat['mdp'] || password_verify($password, $resultat['mdp']))
 
@@ -94,7 +93,7 @@ $resultat = mysqli_fetch_assoc($result);
 			{
 				echo "<Center><font color = 'red'>Erreur Authentification : Mot de Passe Incorrecte </font></Center> <br>";
 			}
-		}
+		} 
 		else
 			{
 				echo "<Center><font color = 'red'>Erreur Authentification : Login non répertorié </font></Center> <br>";
