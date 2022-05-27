@@ -16,7 +16,7 @@ session_start ();
         echo $e; 
         echo"La base de données n'est pas disponible merci de réssayer";
     }
-    if(isset($_SESSION['ACCES'])){
+    if(isset($_SESSION['ACCESS'])){
         echo '<div style = "text-align: right">';
         echo 	'<FORM ACTION="deco.php">';
         echo    '<INPUT TYPE="SUBMIT" VALUE="   Déconnexion   "">';
