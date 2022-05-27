@@ -86,7 +86,7 @@
   				</FORM>
 
 				<FORM ACTION="consulterTypeActivite.php">
-    			<INPUT TYPE="SUBMIT" VALUE="   Consutler liste des Type Activités   "  style="width: 300px; height: 40px;">
+    			<INPUT TYPE="SUBMIT" VALUE="   Consulter liste des Type Activités   "  style="width: 300px; height: 40px;">
   				</FORM>
 
   				<FORM ACTION="listeTableaux.php">
