@@ -1,44 +1,76 @@
+<?php
+	include('connexion.php');
+	if(isset($_SESSION['login']))
+	{
+
+
+        $dayToJour = array(
+            "Mon" => "Lundi",
+            "Tue" => "Mardi",
+            "Wed" => "Mercredi",
+            "Thu" => "Jeudi",
+            "Fri" => "Vendredi",
+            "Sat" => "Samedi",
+            "Sun" => "Dimanche",
+        );
+
+?>
+
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	<?php 
+<html>
+<HEAD>
+<meta charset="utf-8" />
+
+</HEAD>
+
+<BODY>
+
+<?php
 include('excelWriterDownload.php');
+$link=mysqli_connect("localhost","root","","planning_medical");
 
- $link=mysqli_connect("localhost","root","","planning_medical");
 
- $sql= "SELECT date_debut,nom,prenom
- FROM activite,medecin,effectuer 
- WHERE activite.Id_ACTIVITE = effectuer.Id_ACTIVITE 
- AND effectuer.Id_Medecin = medecin.idMedecin
- 
- AND Id_TYPE_ACTIVITE ='G' " ;
- 
- $sqlastr= "SELECT date_debut,nom,prenom
- FROM activite,medecin,effectuer 
- WHERE activite.Id_ACTIVITE = effectuer.Id_ACTIVITE 
- AND effectuer.Id_Medecin = medecin.idMedecin
- 
- AND Id_TYPE_ACTIVITE ='A' " ; 
- 
- $result=mysqli_query($link,$sql);   
- $ligne = mysqli_fetch_assoc($result);
- 
- $resultastr=mysqli_query($link,$sqlastr);   
- $ligneastr = mysqli_fetch_assoc($resultastr);
+$sql= "SELECT date_debut,nom,prenom
+FROM activite,medecin,effectuer 
+WHERE activite.Id_ACTIVITE = effectuer.Id_ACTIVITE 
+AND effectuer.Id_Medecin = medecin.idMedecin
+
+AND Id_TYPE_ACTIVITE ='G' " ;
+
+$sqlastr= "SELECT date_debut,nom,prenom
+FROM activite,medecin,effectuer 
+WHERE activite.Id_ACTIVITE = effectuer.Id_ACTIVITE 
+AND effectuer.Id_Medecin = medecin.idMedecin
+
+AND Id_TYPE_ACTIVITE ='A' " ; 
+
+$result=mysqli_query($link,$sql);   
+$ligne = mysqli_fetch_assoc($result);
+
+$resultastr=mysqli_query($link,$sqlastr);   
+$ligneastr = mysqli_fetch_assoc($resultastr);
+
+
+echo '<table align="center" border="3" BGCOLOR="white">';
+echo "<tr style = 'background-color : #028aa9'>";
+    
+    
+   
+    echo "<td>Date</td>";
+    echo "<td>Garde</td>";
+    echo "<td>Astreinte</td>";
+    
+        
+    
+    
+    
+echo "</tr>";
 	
 
-	while($ligne)
-	{ 
-		
-		
-		$orderdate = explode('-', $ligne["date_debut"]);
+    while($ligne) // probleme possible si nombre astreitne et garde non identique/ solution à séparer
+    {
+        $orderdate = explode('-', $ligne["date_debut"]);
         $year = $orderdate[0];
         $month   = $orderdate[1];
         $day  = $orderdate[2];
@@ -61,14 +93,9 @@ include('excelWriterDownload.php');
 
         $ligne = mysqli_fetch_assoc($result);
         $ligneastr = mysqli_fetch_assoc($resultastr);
-		
-		
-	}
+        
+    }
 	
-	echo"</table>";
-
-
-
 
 
 /*Libération des résultats*/
@@ -81,6 +108,15 @@ mysqli_close($link);
 
 
 	echo"</table>";
+?>	
+
+</BODY>
+</HTML>
+
+<?php
+	}
+	else
+		{
+			echo "Vous ne vous etes pas authentifié";
+		}	
 ?>
-</body>
-</html>
