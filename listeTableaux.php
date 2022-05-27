@@ -37,6 +37,13 @@
 	<a href="downloadTypeAct.php?name=listeTypesActivite">
     	<button style="width: 200px; height: 40px; background-color:aquamarine">Télecharger Liste des Types d'Activités</button>
 	</a>
+
+    <h3>
+        Liste des Gardes
+    </h3>
+    <a href="downloadGarde.php?name=listeGardes">
+    	<button style="width: 200px; height: 40px; background-color:aquamarine">Télecharger Liste des Gardes</button>
+	</a>
 </fieldset>
 
 

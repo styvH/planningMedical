@@ -24,18 +24,18 @@
 <style type="text/css">
 	@import URL(css/style.css);
 </style>
-<TITLE>Liste Activités</TITLE>
+<TITLE>Planning de Garde</TITLE>
 </HEAD>
 
 <BODY background="">
-<CENTER><H2>Liste des Activités</H2></CENTER>
+<CENTER><H2>Planning de Garde</H2></CENTER>
 <br>
 
 <?php
 
 $link=mysqli_connect("localhost","root","","planning_medical");
 
-echo "<CENTER><H3>Du Jour</H3></CENTER>";
+echo "<CENTER><H3>Du mois</H3></CENTER>";
 
 $sql= "SELECT date_debut,nom,prenom
 FROM activite,medecin,effectuer 
