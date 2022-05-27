@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 25 mai 2022 à 18:12
+-- Généré le : ven. 27 mai 2022 à 20:09
 -- Version du serveur : 8.0.27
--- Version de PHP : 7.4.26
+-- Version de PHP : 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,24 +43,29 @@ CREATE TABLE IF NOT EXISTS `activite` (
   PRIMARY KEY (`Id_ACTIVITE`),
   KEY `Id_Medecin` (`Id_Medecin`),
   KEY `Id_TYPE_ACTIVITE` (`Id_TYPE_ACTIVITE`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `activite`
 --
 
 INSERT INTO `activite` (`Id_ACTIVITE`, `description`, `derniere_minute`, `Id_TYPE_ACTIVITE`, `nombreMedecinActuel`, `Id_Medecin`, `valide`, `date_debut`, `heure_debut`, `heure_fin`, `renouveler`) VALUES
-(8, 'test', 0, 'A', 0, NULL, NULL, '2022-05-10', 4, 8, 0),
-(10, 'd', 1, 'G', 0, NULL, NULL, '2022-05-17', 2, 1, 1),
-(11, 'gzgz', 0, 'G', 1, NULL, NULL, '2022-05-02', 3, 7, 0),
-(12, 'tzg', 0, 'A', 1, NULL, NULL, '2022-05-29', 2, 7, 0),
-(13, 'zfzf', 0, 'G', 1, NULL, NULL, '2022-05-24', 3, 5, 0),
-(14, 'afa', 0, 'A', 0, NULL, NULL, '2022-05-19', 4, 17, 0),
-(17, 'test', 0, 'A', 1, NULL, NULL, '2022-05-27', 13, 16, 0),
-(18, '', 0, 'G', 0, NULL, NULL, '2022-05-28', 2, 6, 0),
-(19, '', 0, 'A', 0, NULL, NULL, '2022-05-25', 1, 5, 0),
-(20, '', 0, 'A', 0, NULL, NULL, '2022-05-10', 7, 11, 0),
-(21, 'test', 1, 'G', 0, NULL, NULL, '2022-05-25', 1, 3, 1);
+(8, 'test', 0, 'Astr', 0, NULL, NULL, '2022-05-10', 4, 8, 0),
+(10, 'd', 1, 'GAR', 0, NULL, NULL, '2022-05-17', 2, 1, 1),
+(11, 'gzgz', 0, 'GAR', 1, NULL, NULL, '2022-05-02', 3, 7, 0),
+(12, 'tzg', 0, 'Astr', 1, NULL, NULL, '2022-05-29', 2, 7, 0),
+(13, 'zfzf', 0, 'GAR', 1, NULL, NULL, '2022-05-24', 3, 5, 0),
+(14, 'afa', 0, 'Astr', 0, NULL, NULL, '2022-05-19', 4, 17, 0),
+(17, 'test', 0, 'Astr', 2, NULL, NULL, '2022-05-27', 13, 16, 0),
+(18, '', 0, 'GAR', 1, NULL, NULL, '2022-05-28', 2, 6, 0),
+(19, '', 0, 'Astr', 2, NULL, NULL, '2022-05-25', 1, 5, 0),
+(20, '', 0, 'Astr', 0, NULL, NULL, '2022-05-10', 7, 11, 0),
+(21, 'test', 1, 'GAR', 0, NULL, NULL, '2022-05-25', 1, 3, 1),
+(22, 'absence à justifier', 0, '?abs?', 0, NULL, NULL, '2022-05-02', 7, 20, 0),
+(23, '', 0, 'GAR', 0, NULL, NULL, '2022-05-18', 3, 10, 0),
+(24, '', 0, 'Astr', 1, NULL, NULL, '2022-05-27', 2, 7, 0),
+(25, '', 0, 'GAR', 1, NULL, NULL, '2022-05-27', 10, 4, 0),
+(26, '', 0, 'GAR', 1, NULL, NULL, '2022-05-28', 4, 14, 0);
 
 -- --------------------------------------------------------
 
@@ -76,6 +81,21 @@ CREATE TABLE IF NOT EXISTS `effectuer` (
   PRIMARY KEY (`Id_Medecin`,`Id_ACTIVITE`),
   KEY `Id_ACTIVITE` (`Id_ACTIVITE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `effectuer`
+--
+
+INSERT INTO `effectuer` (`Id_Medecin`, `Id_ACTIVITE`, `astreinte__o_n_`) VALUES
+(2, 17, NULL),
+(2, 19, NULL),
+(4, 12, NULL),
+(4, 17, NULL),
+(4, 18, NULL),
+(4, 19, NULL),
+(4, 24, NULL),
+(4, 25, NULL),
+(4, 26, NULL);
 
 -- --------------------------------------------------------
 
@@ -97,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   `mdp` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idMedecin`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `medecin`
@@ -106,8 +126,10 @@ CREATE TABLE IF NOT EXISTS `medecin` (
 INSERT INTO `medecin` (`idMedecin`, `nom`, `prenom`, `coordonnees`, `mail`, `adresse`, `nombreMinimumGarde`, `nombreMaximumGarde`, `login`, `mdp`) VALUES
 (1, 'FIRST', 'prems', NULL, NULL, NULL, 0, 0, 'first', 'az'),
 (2, 'SECOND', 'deux', 'ze', 'ze', 'ez', 0, 0, 'second', 'az'),
-(3, 'RESPFIRST', 'RespPrenom', 'cooo', 'm@mal.com', 'adrest', 0, 0, 'resp', 'az'),
-(4, 'test', 'az', 'de', 'ef@gmail.com', 'ef', 2, 5, 'test', '$2y$12$X/CidPVaRCvz8rtWfSVHmOg2xRx51xPneT1gYJLa.epVdw4CQjGPC');
+(3, 'RESPFIRST', 'RespPrenom', 'cooo', 'tmtckic@gmail.com', 'adrest', 0, 0, 'resp', '$2y$12$ZqxkD/9718O9NduLml03y.R1SXBSERW9QTS1hbbNBsygJ1DoxIzqy'),
+(4, 'test', 'az', 'de', 'ef@gmail.com', 'ef', 2, 5, 'test', '$2y$12$X/CidPVaRCvz8rtWfSVHmOg2xRx51xPneT1gYJLa.epVdw4CQjGPC'),
+(5, 'MED', 'Medecin', NULL, NULL, NULL, 0, 0, 'medecin', 'med'),
+(6, 'RESP', 'Responsable', NULL, NULL, NULL, 0, 0, 'responsable', 'resp');
 
 -- --------------------------------------------------------
 
@@ -155,6 +177,7 @@ INSERT INTO `secteur` (`Id_SECTEUR`, `nomSecteur`, `nombreMedecinRequis`) VALUES
 ('REAPED', 'Réanimation Pédiatrique', 1),
 ('SCPED', 'Soins Continus Pédiatriques', 1),
 ('SINN', 'Soins Intensifs néonatals', 1),
+('TEST', 'testNmm', 4),
 ('UK', 'Unité Kangourou', 1);
 
 -- --------------------------------------------------------
@@ -188,114 +211,7 @@ CREATE TABLE IF NOT EXISTS `support` (
   `retour` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `Id_Medecin` (`IdMedecin`)
-) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Déchargement des données de la table `support`
---
-
-INSERT INTO `support` (`id`, `post`, `IdMedecin`, `retour`) VALUES
-(1, 'test', 4, NULL),
-(2, 'test', 4, NULL),
-(8, 'tee', 4, NULL),
-(9, 'tee', 4, NULL),
-(10, 'Ceci est un test de ticket', 4, NULL),
-(11, 'Ceci est un test de ticket', 4, NULL),
-(12, 'Ceci est un test de ticket', 4, NULL),
-(13, 'Ceci est un test de ticket', 4, NULL),
-(14, 'For What', 4, NULL),
-(15, 'For What', 4, NULL),
-(16, '', 4, NULL),
-(17, '', 4, NULL),
-(18, '', 4, NULL),
-(19, '', 4, NULL),
-(20, '', 4, NULL),
-(21, '', 4, NULL),
-(22, '', 4, NULL),
-(23, 'ff', 4, NULL),
-(24, 'ffff', 4, NULL),
-(25, 'ff', 4, NULL),
-(26, 'ff', 4, NULL),
-(27, 'ff', 4, NULL),
-(28, 'ff', 4, NULL),
-(29, '', 4, NULL),
-(30, '', 4, NULL),
-(31, '', 4, NULL),
-(32, '', 4, NULL),
-(33, '', 4, NULL),
-(34, '', 4, NULL),
-(35, '', 4, NULL),
-(36, '', 4, NULL),
-(37, 'dzfaf', 4, NULL),
-(38, 'dzfaf', 4, NULL),
-(39, 'dzfaf', 4, NULL),
-(40, '', 4, NULL),
-(41, '', 4, NULL),
-(42, '', 4, NULL),
-(43, '', 4, NULL),
-(44, '', 4, NULL),
-(45, '', 4, NULL),
-(46, '', 4, NULL),
-(47, '', 4, NULL),
-(48, '', 4, NULL),
-(49, '', 4, NULL),
-(50, '', 4, NULL),
-(51, '', 4, NULL),
-(52, '', 4, NULL),
-(53, '', 4, NULL),
-(54, '', 4, NULL),
-(55, '', 4, NULL),
-(56, '', 4, NULL),
-(57, '', 4, NULL),
-(58, '', 4, NULL),
-(59, '', 4, NULL),
-(60, '', 4, NULL),
-(61, '', 4, NULL),
-(62, '', 4, NULL),
-(63, '', 4, NULL),
-(64, '', 4, NULL),
-(65, '', 4, NULL),
-(66, '', 4, NULL),
-(67, '', 4, NULL),
-(68, 'edd', 4, NULL),
-(69, '', 4, NULL),
-(70, 'ff', 4, NULL),
-(71, 'ff', 4, NULL),
-(72, 'ff', 4, NULL),
-(73, 'dd', 4, NULL),
-(74, 'dd', 4, NULL),
-(75, 'ddd', 4, NULL),
-(76, 'test', 4, NULL),
-(77, 'test', 4, NULL),
-(78, 'test', 4, NULL),
-(79, 'test', 4, NULL),
-(80, 'test', 4, NULL),
-(81, 'teef', 4, NULL),
-(82, 'teef', 4, NULL),
-(83, 'teef', 4, NULL),
-(84, 'ff', 4, NULL),
-(85, 'ff', 4, NULL),
-(86, 'ff', 4, NULL),
-(87, 'ff', 4, NULL),
-(88, 'test', 4, NULL),
-(89, 'ff', 4, NULL),
-(90, 'Dernier Ticket\r\n', 4, NULL),
-(91, 'Dernier Ticket\r\n', 4, NULL),
-(92, 'Voici', 4, NULL),
-(93, 'ff', 4, NULL),
-(94, 'tet', 4, NULL),
-(95, 'dd', 4, NULL),
-(96, 'ddd', 4, NULL),
-(97, 'ff', 4, NULL),
-(98, 'dd', 4, NULL),
-(99, 'dd', 4, NULL),
-(100, 'ff', 4, NULL),
-(101, 'ff', 4, NULL),
-(102, 'Nwone', 4, NULL),
-(103, 'dd', 4, NULL),
-(104, 'az', 4, NULL),
-(105, 'ff', 4, NULL),
-(106, '2224144AFZF', 4, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -320,10 +236,11 @@ CREATE TABLE IF NOT EXISTS `type_activite` (
 
 INSERT INTO `type_activite` (`Id_TYPE_ACTIVITE`, `abreviation`, `libelle_type`, `description_type`, `secteur`) VALUES
 ('?abs?', '?', '?absence?', 'absence en attente validation', NULL),
-('A', 'A', 'Astreinte', NULL, NULL),
 ('acc T', 'AT', 'accident de travail', NULL, NULL),
 ('adm', 'X', 'Administratif', NULL, NULL),
 ('arr M', 'AM', 'Arrêt Maladie', NULL, NULL),
+('Astr', 'A', 'Astreinte', NULL, NULL),
+('Astr Card', 'A', NULL, NULL, NULL),
 ('C ann', 'CA', 'Congés Annuel', NULL, NULL),
 ('C bon', 'B', 'Congés Bonifié', NULL, NULL),
 ('C mat', 'T', 'Congés Maternité', NULL, NULL),
@@ -333,7 +250,7 @@ INSERT INTO `type_activite` (`Id_TYPE_ACTIVITE`, `abreviation`, `libelle_type`, 
 ('ENS', 'ES', 'Enseignement', NULL, NULL),
 ('EVA', 'E', 'EVASAN', NULL, NULL),
 ('FORM', 'F', 'Formation', 'Formation pour soi', NULL),
-('G', 'GAR', 'Garde', 'Les médecins s\'occupent des secteurs', NULL),
+('GAR', 'G', 'Garde', 'Les médecins s\'occupent des secteurs', NULL),
 ('MIS', 'MI', 'Mission', NULL, NULL),
 ('RECUP', 'RQ', 'Récupération', NULL, NULL),
 ('REP A', 'RQ', 'Repos Astreinte', NULL, NULL),
@@ -354,7 +271,7 @@ INSERT INTO `type_activite` (`Id_TYPE_ACTIVITE`, `abreviation`, `libelle_type`, 
 --
 ALTER TABLE `activite`
   ADD CONSTRAINT `activite_ibfk_1` FOREIGN KEY (`Id_Medecin`) REFERENCES `responsable_planning` (`idMedecin`),
-  ADD CONSTRAINT `activite_ibfk_3` FOREIGN KEY (`Id_TYPE_ACTIVITE`) REFERENCES `type_activite` (`Id_TYPE_ACTIVITE`);
+  ADD CONSTRAINT `activite_ibfk_2` FOREIGN KEY (`Id_TYPE_ACTIVITE`) REFERENCES `type_activite` (`Id_TYPE_ACTIVITE`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Contraintes pour la table `effectuer`
