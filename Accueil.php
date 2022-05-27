@@ -8,10 +8,10 @@
 	@import URL(css/style.css);
 </style>
 </head>
-<body background=img/>
+<body style = "text-align: center">
 
 
-<center><h1><font color=>Acceuil</h1></center>
+<h1>Acceuil</h1>
 	<br>
 	<br>
 	<br>
@@ -20,7 +20,7 @@
 		<form method="post">
 		
 		
-		<table align="center" border="0">
+		<table style = 'text-align:center; border: 0'>
 			<tr>
 				<td>Login : </td>
 				<td><input type="text" name="login" cols="30" size="30" required></td>
@@ -33,8 +33,6 @@
 		</table>
 		
 	<br>
-
-	<center>
 
 	<?php
 
@@ -102,10 +100,16 @@ $resultat = mysqli_fetch_assoc($result);
 }
 ?>
 	 <input type="submit" name = "submit" value="Connexion">
-	</center>
 	</form>
 	<footer>
 
+</footer>
+
+</body>	
+</html>>
+	<p>
+		Copyright &copy; HS_Prod - 2019-2021 - All Right Reserved
+	</p>
 </footer>
 
 </body>	

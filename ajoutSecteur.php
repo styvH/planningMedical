@@ -7,20 +7,20 @@
 <head>
 <meta charset="utf-8" />
 <style type="text/css">
-	<!--
+
 	@import URL(css/style.css);
-	-->
+
 </style>
 <TITLE>Ajout-Secteur</TITLE>
 </HEAD>
 
-<BODY>
-<CENTER><H3>Ajouter un Secteur</H3></CENTER>
+<BODY style = 'text-align:center'>
+<H3>Ajouter un Secteur</H3>
 <br>
 
 
-<FORM ACTION="ajoutSecteur2.php" METHOD="POST"">
-	<table align="center" border="0">
+<FORM ACTION="ajoutSecteur2.php" METHOD="POST">
+	<table style = 'text-align:center; border: 0'>
 	
 	
 	<tr>
@@ -53,16 +53,16 @@
 	</tr>
 
 	</table>
-	</center>
+
 	<br><br>
-	<center><input type="submit" name="formid" id="formid" value="Enregistrer" ></center>
+	<input type="submit" name="formid" id="formid" value="Enregistrer" >
 		</form>
 		<br><br>
-<center>
+
 	<FORM ACTION="menuRedirect.php">
     			<INPUT TYPE="SUBMIT" VALUE="Retour Menu">
   				</FORM>
-</center>	
+
 
 
 </BODY>

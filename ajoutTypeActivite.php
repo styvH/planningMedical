@@ -14,13 +14,13 @@
 <TITLE>Ajout-Type-Activité</TITLE>
 </HEAD>
 
-<BODY>
-<CENTER><H3>Ajouter un Type d'Activité</H3></CENTER>
+<BODY style = 'text-align:center'>
+<H3>Ajouter un Type d'Activité</H3>
 <br>
 
 
 <FORM ACTION="ajoutType2.php" METHOD="POST"">
-	<table align="center" border="0">
+	<table style = 'text-align:center; border: 0'>
 	
 	
 	<tr>
@@ -76,16 +76,15 @@
 	
 
 	</table>
-	</center>
 	<br><br>
-	<center><input type="submit" name="formid" id="formid" value="Enregistrer" ></center>
+	<input type="submit" name="formid" id="formid" value="Enregistrer" >
 		</form>
 		<br><br>
-<center>
+
 	<FORM ACTION="menuRedirect.php">
     			<INPUT TYPE="SUBMIT" VALUE="Retour Menu">
   				</FORM>
-</center>	
+
 
 
 </BODY>
