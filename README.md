@@ -7,11 +7,11 @@ Les identifiants avant Modification sont les derniers :
 
 Identifiants Medecin : 
 
-Login : medecin
+Login : medecin; 
 mdp : med
 
 Identifiants Responsable : 
-Login : responsable
+Login : responsable; 
 mdp : resp
 
 Lors de votre première connexion, vous devrez entrer un mot de passe valide qui sera crypté et enregistré dans la base.
