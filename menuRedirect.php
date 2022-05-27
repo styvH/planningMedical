@@ -10,6 +10,9 @@
 					case "Resp" :
 					header('location: menuResp.php');
 					break;
+					case "CHANGE" :
+					header('location: firstConnect.php');
+					break;
 
 				}
 

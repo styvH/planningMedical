@@ -27,7 +27,7 @@
 <TITLE>Liste Activités</TITLE>
 </HEAD>
 
-<BODY background="">
+<BODY>
 <CENTER><H2>Liste des Activités</H2></CENTER>
 <br>
 

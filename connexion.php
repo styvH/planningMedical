@@ -33,7 +33,7 @@ session_start ();
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
     	header('refresh:1;url=deco.php');
-    	echo 'Session Expirée';
+    	echo '<h2>Session Expirée</h2>';
     	exit;
 }
 if (isset($_SESSION['LAST_ACTIVITY']))
@@ -42,13 +42,13 @@ $_SESSION['LAST_ACTIVITY'] = time();
 }
 
 
-	/**
+/* 
 	$req= mysql_query("select * from auth where Auth_Login= '".$_SESSION['Auth_Login']."' ") or die("Oups !");
 	$info= mysql_fetch_array($req);
-	**/
+
 	
 	//Connexion au serveur sous Mac avec MAMP
-	/**
+
 	$user = 'root';
 	$password = 'root';
 	$db = 'gsb';
@@ -65,5 +65,5 @@ $_SESSION['LAST_ACTIVITY'] = time();
    $db, 
    $link
    ) or die("erreur de connexion a la BDD");
-	**/
+ */
 ?>

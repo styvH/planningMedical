@@ -20,7 +20,7 @@
 		<form method="post">
 		
 		
-		<table style = 'text-align:center; border: 0'>
+		<table style = 'margin :auto; border: 0'>
 			<tr>
 				<td>Login : </td>
 				<td><input type="text" name="login" cols="30" size="30" required></td>
@@ -55,8 +55,16 @@ $resultat = mysqli_fetch_assoc($result);
 
 	if(isset($resultat) && strtoupper($login)  == strtoupper($resultat['login'])) //stroupper pour tout mettre en majuscule soit à la même hauteur pour éviter les erreurs de majuscule	
 		{
-			if($password == $resultat['mdp'] || password_verify($password, $resultat['mdp']))
-
+			if($password == $resultat['mdp']){ //Premiere Authentification
+				include 'connexion.php';
+				$_SESSION['idMedecin'] = $resultat['idMedecin'];
+				$_SESSION['login']= $login;
+				$_SESSION['LAST_ACTIVITY'] = time();
+				$_SESSION['ACCESS'] = "CHANGE";
+				header('location: menuRedirect.php');
+			}
+		
+			else if(password_verify($password, $resultat['mdp']))
 			{
 				include 'connexion.php';
 				$_SESSION['idMedecin'] = $resultat['idMedecin'];
@@ -106,7 +114,7 @@ $resultat = mysqli_fetch_assoc($result);
 </footer>
 
 </body>	
-</html>>
+</html>
 	<p>
 		Copyright &copy; HS_Prod - 2019-2021 - All Right Reserved
 	</p>

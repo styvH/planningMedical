@@ -19,8 +19,8 @@
 <br>
 
 
-<FORM ACTION="ajoutType2.php" METHOD="POST"">
-	<table style = 'text-align:center; border: 0'>
+<FORM ACTION="ajoutType2.php" METHOD="POST">
+	<table style = 'margin :auto; border: 0'>
 	
 	
 	<tr>

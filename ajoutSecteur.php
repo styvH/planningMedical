@@ -20,7 +20,7 @@
 
 
 <FORM ACTION="ajoutSecteur2.php" METHOD="POST">
-	<table style = 'text-align:center; border: 0'>
+	<table style = 'margin :auto; border: 0'>
 	
 	
 	<tr>
