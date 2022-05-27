@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 27 mai 2022 à 20:09
+-- Généré le : ven. 27 mai 2022 à 23:41
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.3.33
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `activite` (
   PRIMARY KEY (`Id_ACTIVITE`),
   KEY `Id_Medecin` (`Id_Medecin`),
   KEY `Id_TYPE_ACTIVITE` (`Id_TYPE_ACTIVITE`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `activite`
@@ -53,7 +53,7 @@ INSERT INTO `activite` (`Id_ACTIVITE`, `description`, `derniere_minute`, `Id_TYP
 (8, 'test', 0, 'Astr', 0, NULL, NULL, '2022-05-10', 4, 8, 0),
 (10, 'd', 1, 'GAR', 0, NULL, NULL, '2022-05-17', 2, 1, 1),
 (11, 'gzgz', 0, 'GAR', 1, NULL, NULL, '2022-05-02', 3, 7, 0),
-(12, 'tzg', 0, 'Astr', 1, NULL, NULL, '2022-05-29', 2, 7, 0),
+(12, 'tzg', 0, 'Astr', 2, NULL, NULL, '2022-05-29', 2, 7, 0),
 (13, 'zfzf', 0, 'GAR', 1, NULL, NULL, '2022-05-24', 3, 5, 0),
 (14, 'afa', 0, 'Astr', 0, NULL, NULL, '2022-05-19', 4, 17, 0),
 (17, 'test', 0, 'Astr', 2, NULL, NULL, '2022-05-27', 13, 16, 0),
@@ -64,8 +64,10 @@ INSERT INTO `activite` (`Id_ACTIVITE`, `description`, `derniere_minute`, `Id_TYP
 (22, 'absence à justifier', 0, '?abs?', 0, NULL, NULL, '2022-05-02', 7, 20, 0),
 (23, '', 0, 'GAR', 0, NULL, NULL, '2022-05-18', 3, 10, 0),
 (24, '', 0, 'Astr', 1, NULL, NULL, '2022-05-27', 2, 7, 0),
-(25, '', 0, 'GAR', 1, NULL, NULL, '2022-05-27', 10, 4, 0),
-(26, '', 0, 'GAR', 1, NULL, NULL, '2022-05-28', 4, 14, 0);
+(25, '', 0, 'GAR', 2, NULL, NULL, '2022-05-27', 10, 4, 0),
+(26, '', 0, 'GAR', 1, NULL, NULL, '2022-05-28', 4, 14, 0),
+(27, '', 0, 'adm', 1, NULL, NULL, '2022-05-28', 13, 13, 0),
+(28, '', 0, 'adm', 0, NULL, NULL, '2022-05-28', 13, 13, 0);
 
 -- --------------------------------------------------------
 
@@ -128,8 +130,8 @@ INSERT INTO `medecin` (`idMedecin`, `nom`, `prenom`, `coordonnees`, `mail`, `adr
 (2, 'SECOND', 'deux', 'ze', 'ze', 'ez', 0, 0, 'second', 'az'),
 (3, 'RESPFIRST', 'RespPrenom', 'cooo', 'tmtckic@gmail.com', 'adrest', 0, 0, 'resp', '$2y$12$ZqxkD/9718O9NduLml03y.R1SXBSERW9QTS1hbbNBsygJ1DoxIzqy'),
 (4, 'test', 'az', 'de', 'ef@gmail.com', 'ef', 2, 5, 'test', '$2y$12$X/CidPVaRCvz8rtWfSVHmOg2xRx51xPneT1gYJLa.epVdw4CQjGPC'),
-(5, 'MED', 'Medecin', NULL, NULL, NULL, 0, 0, 'medecin', 'med'),
-(6, 'RESP', 'Responsable', NULL, NULL, NULL, 0, 0, 'responsable', 'resp');
+(5, 'MED', 'Medecin', NULL, 'mail@test.fr', NULL, 0, 0, 'medecin', 'med'),
+(6, 'RESP', 'Responsable', NULL, 'resp@tet.gmail', NULL, 0, 0, 'responsable', 'resp');
 
 -- --------------------------------------------------------
 
@@ -149,7 +151,8 @@ CREATE TABLE IF NOT EXISTS `responsable_planning` (
 
 INSERT INTO `responsable_planning` (`idMedecin`) VALUES
 (2),
-(3);
+(3),
+(6);
 
 -- --------------------------------------------------------
 
