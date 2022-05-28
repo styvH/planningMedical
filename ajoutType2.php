@@ -19,7 +19,7 @@ $secteur = $_POST['secteur'];
 
 $db=mysqli_connect("localhost","root","","planning_medical");
 
-$sql="INSERT INTO type_activite VALUES('$id', '$abrev', '$nom', '$desc', $secteur)"or die(mysqli_connect_error());
+$sql="INSERT INTO type_activite VALUES('$id', '$abrev', '$nom', '$desc', '$secteur')"or die(mysqli_connect_error());
 
 $req= mysqli_query($db,$sql)or die(mysqli_connect_error());
 

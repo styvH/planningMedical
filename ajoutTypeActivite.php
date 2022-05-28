@@ -47,7 +47,7 @@
 	<tr>
 	<td>Secteur :</td>
 	<td>
-	<select type="text" name="type" id = "type" required>
+	<select type="text" name="secteur" id = "secteur" required>
     <option value=NULL>ID - Nom - NbMedecins Requis</option>
 	
 	<?php
